@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		185B3E552F004B02002F29DF /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 185B3E542F004B02002F29DF /* libsqlite3.0.tbd */; };
+		18DD9A912F0BF2C4007056A4 /* Shared in Frameworks */ = {isa = PBXBuildFile; productRef = 18DD9A902F0BF2C4007056A4 /* Shared */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				185B3E552F004B02002F29DF /* libsqlite3.0.tbd in Frameworks */,
+				18DD9A912F0BF2C4007056A4 /* Shared in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,7 +101,7 @@
 			);
 			name = iosApp;
 			packageProductDependencies = (
-				181A18A42F0A8CE5007E2E92 /* Shared */,
+				18DD9A902F0BF2C4007056A4 /* Shared */,
 			);
 			productName = iosApp;
 			productReference = 9150EFE6DCDB9AC4449652B2 /* Aura.app */;
@@ -130,7 +132,7 @@
 			mainGroup = 73FB920FCF795C266DEAE5A4;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				181A18A32F0A8CE5007E2E92 /* XCRemoteSwiftPackageReference "aura-core" */,
+				18DD9A8F2F0BF2C4007056A4 /* XCRemoteSwiftPackageReference "aura-spm" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 1D13E43F914E1C7C27E6D135 /* Products */;
@@ -366,9 +368,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		181A18A32F0A8CE5007E2E92 /* XCRemoteSwiftPackageReference "aura-core" */ = {
+		18DD9A8F2F0BF2C4007056A4 /* XCRemoteSwiftPackageReference "aura-spm" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Helmy2/aura-core";
+			repositoryURL = "https://github.com/Helmy2/aura-spm";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -377,9 +379,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		181A18A42F0A8CE5007E2E92 /* Shared */ = {
+		18DD9A902F0BF2C4007056A4 /* Shared */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 181A18A32F0A8CE5007E2E92 /* XCRemoteSwiftPackageReference "aura-core" */;
+			package = 18DD9A8F2F0BF2C4007056A4 /* XCRemoteSwiftPackageReference "aura-spm" */;
 			productName = Shared;
 		};
 /* End XCSwiftPackageProductDependency section */

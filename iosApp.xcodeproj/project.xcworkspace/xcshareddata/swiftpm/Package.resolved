@@ -1,13 +1,13 @@
 {
-  "originHash" : "e84345810d4a46291f2fff9345eb73146c47cb4304c339161b8968c7b4e765d1",
+  "originHash" : "cfa64611efd908c7ddff623de28c9829b755b653c589cf6e2dd7c52c5a422f19",
   "pins" : [
     {
-      "identity" : "aura-core",
+      "identity" : "aura-spm",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Helmy2/aura-core",
+      "location" : "https://github.com/Helmy2/aura-spm",
       "state" : {
         "branch" : "main",
-        "revision" : "380267929e1936f6b7c745c135f5201d706d4a90"
+        "revision" : "1a4b820c34c2d8127116ae460184fe16f09bcc6c"
       }
     }
   ],
