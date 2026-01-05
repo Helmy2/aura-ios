@@ -1,0 +1,15 @@
+{
+  "originHash" : "e84345810d4a46291f2fff9345eb73146c47cb4304c339161b8968c7b4e765d1",
+  "pins" : [
+    {
+      "identity" : "aura-core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Helmy2/aura-core",
+      "state" : {
+        "branch" : "main",
+        "revision" : "380267929e1936f6b7c745c135f5201d706d4a90"
+      }
+    }
+  ],
+  "version" : 3
+}
