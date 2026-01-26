@@ -35,28 +35,28 @@ struct ContentView: View {
     @EnvironmentObject var coordinator: NavigationCoordinator
 
     var body: some View {
-        ZStack(alignment: .bottom) {
-
-            Group {
-                switch coordinator.selectedTab {
-                case .home:
-                    HomeNavigationStack()
-                case .favorites:
-                    FavoritesNavigationStack()
-                case .settings:
-                    SettingNavigationStack()
+        TabView(selection: $coordinator.selectedTab) {
+            HomeNavigationStack()
+                .environmentObject(coordinator)
+                .tabItem {
+                    Label("Home", systemImage: "house.fill")
                 }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .tag(NavigationCoordinator.Tab.home)
 
-            if coordinator.path.isEmpty {
-                AuraTabBar(selectedTab: $coordinator.selectedTab)
-                    .padding(.bottom, 10)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
+            FavoritesNavigationStack()
+                .environmentObject(coordinator)
+                .tabItem {
+                    Label("Favorites", systemImage: "heart.fill")
+                }
+                .tag(NavigationCoordinator.Tab.favorites)
 
-            }
+            SettingNavigationStack()
+                .environmentObject(coordinator)
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape.fill")
+                }
+                .tag(NavigationCoordinator.Tab.settings)
         }
-        .ignoresSafeArea()
     }
 }
 
