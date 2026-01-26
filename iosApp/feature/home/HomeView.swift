@@ -14,13 +14,20 @@ struct HomeView: View {
                 .foregroundColor(.gray)
                 .padding(.bottom, 20)
 
-
             Button(action: { coordinator.navigateToWallpaperList() }) {
-                MenuCard(title: "Wallpapers", icon: "photo.on.rectangle.angled", color: .purple)
+                LiquidGlassCard { MenuCard(
+                    title: "Wallpapers",
+                    icon: "photo.on.rectangle.angled",
+                    color: .purple
+                ) }
             }
 
             Button(action: { coordinator.navigateToVideoList() }) {
-                MenuCard(title: "Videos", icon: "play.rectangle.fill", color: .blue)
+                LiquidGlassCard { MenuCard(
+                    title: "Videos",
+                    icon: "play.rectangle.fill",
+                    color: .blue
+                ) }
             }
 
             Spacer()
@@ -55,8 +62,5 @@ struct MenuCard: View {
                 .foregroundColor(.gray)
         }
         .padding()
-        .background(Color(.systemBackground))
-        .cornerRadius(20)
-        .shadow(color: .black.opacity(0.05), radius: 10, x: 0, y: 5)
     }
 }

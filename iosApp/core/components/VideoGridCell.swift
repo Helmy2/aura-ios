@@ -25,7 +25,7 @@ struct VideoGridCell: View {
                     }
                 }
                 .frame(height: 220)
-                .cornerRadius(12)
+                .cornerRadius(20)
                 .clipped()
             }
 
@@ -50,10 +50,8 @@ struct VideoGridCell: View {
                 }
             }
             .padding(10)
-            .background(.ultraThinMaterial)
+            .liquidGlass()
             .environment(\.colorScheme, .dark)
-            .cornerRadius(12)
-            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
 
             VStack {
                 Text(formatDuration(Int(video.duration)))
@@ -65,9 +63,7 @@ struct VideoGridCell: View {
                     .cornerRadius(4)
                     .padding(8)
                 Spacer()
-
             }
-
         }
     }
 

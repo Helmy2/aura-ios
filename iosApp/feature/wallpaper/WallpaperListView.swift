@@ -12,23 +12,6 @@ struct WallpaperListView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack {
-                Button(action: { coordinator.pop() }) {
-                    Image(systemName: "arrow.left")
-                        .font(.title2)
-                        .foregroundColor(.primary)
-                        .padding(8)
-                        .background(Color(.systemGray6))
-                        .clipShape(Circle())
-                }
-
-                Text("Wallpapers")
-                    .font(.headline)
-
-                Spacer()
-            }
-            .padding()
-
             SearchBarView(
                 text: $viewModel.searchQuery,
                 isSearchActive: viewModel.isSearchMode,
@@ -73,7 +56,8 @@ struct WallpaperListView: View {
                 }
             }
         }
-        .navigationBarHidden(true)
+        .navigationTitle("Wallpapers")
+        .toolbar(.hidden, for: .tabBar)
         .onAppear {
             if viewModel.wallpapers.isEmpty && !viewModel.isLoading {
                 viewModel.loadCuratedWallpapers(reset: true)

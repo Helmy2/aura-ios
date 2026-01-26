@@ -26,47 +26,6 @@ struct VideoDetailView: View {
             Color.black.ignoresSafeArea()
 
             VStack {
-                // Top Bar
-                HStack {
-                    Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                        Image(systemName: "arrow.left")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                            .padding(10)
-                            .background(Color.black.opacity(0.4))
-                            .clipShape(Circle())
-                    }
-
-                    Spacer()
-
-                    // NEW: Favorite Button
-                    Button(action: toggleFav) {
-                        Image(systemName: isFavorite ? "heart.fill" : "heart")
-                            .font(.title2)
-                            .foregroundColor(isFavorite ? .red : .white)
-                            .padding(10)
-                            .background(Color.black.opacity(0.4))
-                            .clipShape(Circle())
-                    }
-
-                    // Download Button
-                    Button(action: downloadVideo) {
-                        if isDownloading {
-                            ProgressView()
-                                .tint(.white)
-                        } else {
-                            Image(systemName: "arrow.down.to.line")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .background(Color.black.opacity(0.4))
-                                .clipShape(Circle())
-                        }
-                    }
-                    .disabled(isDownloading)
-                }
-                .padding()
-                .zIndex(10)
 
                 Spacer()
 
@@ -108,10 +67,30 @@ struct VideoDetailView: View {
             player?.pause()
             player = nil
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: toggleFav) {
+                    Image(systemName: isFavorite ? "heart.fill" : "heart")
+                        .font(.title2)
+                        .foregroundColor(isFavorite ? .red : .gray)
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: downloadVideo) {
+                    if isDownloading {
+                        ProgressView()
+                    } else {
+                        Image(systemName: "arrow.down.to.line")
+                            .font(.title2)
+                    }
+                }
+                .disabled(isDownloading)
+            }
+        }
         .alert(isPresented: $showToast) {
             Alert(title: Text(toastMessage))
         }
-        .navigationBarHidden(true)
     }
 
     private func toggleFav() {

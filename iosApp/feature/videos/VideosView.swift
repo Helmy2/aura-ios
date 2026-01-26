@@ -12,23 +12,6 @@ struct VideosView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            HStack {
-                Button(action: { coordinator.pop() }) {
-                    Image(systemName: "arrow.left")
-                        .font(.title2)
-                        .foregroundColor(.primary)
-                        .padding(8)
-                        .background(Color(.systemGray6))
-                        .clipShape(Circle())
-                }
-
-                Text("Videos")
-                    .font(.headline)
-
-                Spacer()
-            }
-            .padding()
-
             SearchBarView(
                 text: $viewModel.searchQuery,
                 isSearchActive: viewModel.isSearchMode,
@@ -83,7 +66,8 @@ struct VideosView: View {
                 }
             }
         }
-        .navigationBarHidden(true)
+        .navigationTitle("Videos")
+        .toolbar(.hidden, for: .tabBar)
         .onAppear {
             viewModel.loadPopularVideos(reset: true)
         }

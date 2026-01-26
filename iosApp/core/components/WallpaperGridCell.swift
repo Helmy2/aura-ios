@@ -25,7 +25,7 @@ struct WallpaperGridCell: View {
                     }
                 }
                 .frame(height: 220)
-                .cornerRadius(12)
+                .cornerRadius(20)
                 .clipped()
             }
 
@@ -45,17 +45,13 @@ struct WallpaperGridCell: View {
                     Image(
                         systemName: wallpaper.isFavorite
                             ? "heart.fill" : "heart"
-                    )
-                        .font(.system(size: 16, weight: .semibold))
+                    ).font(.system(size: 16, weight: .semibold))
                         .foregroundStyle(wallpaper.isFavorite ? .red : .white)
                         .shadow(radius: 2)
                 }
             }
             .padding(10)
-            .background(.ultraThinMaterial)
-            .environment(\.colorScheme, .dark)
-            .cornerRadius(12)
-            .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+            .liquidGlass()
         }
     }
 }

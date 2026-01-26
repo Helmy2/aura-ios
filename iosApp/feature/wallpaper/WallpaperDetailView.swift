@@ -39,50 +39,6 @@ struct WallpaperDetailView: View {
             }
             // Top Controls
             VStack {
-                HStack {
-                    Button(action: { presentationMode.wrappedValue.dismiss() })
-                    {
-                        Image(systemName: "arrow.left")
-                            .font(.title2)
-                            .foregroundColor(.white)
-                            .padding(10)
-                            .background(Color.black.opacity(0.4))
-                            .clipShape(Circle())
-                    }
-
-                    Spacer()
-
-                    // Favorite Button
-                    Button(action: toggleFav) {
-                        Image(systemName: isFavorite ? "heart.fill" : "heart")
-                            .font(.title2)
-                            .foregroundColor(isFavorite ? .red : .white)
-                            .padding(10)
-                            .background(Color.black.opacity(0.4))
-                            .clipShape(Circle())
-                    }
-
-                    // Download Button
-                    Button(action: downloadWallpaper) {
-                        if isDownloading {
-                            ProgressView()
-                                .tint(.white)
-                                .padding(10)
-                                .background(Color.black.opacity(0.4))
-                                .clipShape(Circle())
-                        } else {
-                            Image(systemName: "arrow.down.to.line")
-                                .font(.title2)
-                                .foregroundColor(.white)
-                                .padding(10)
-                                .background(Color.black.opacity(0.4))
-                                .clipShape(Circle())
-                        }
-                    }
-                    .disabled(isDownloading)
-                }
-                .padding()
-
                 Spacer()
 
                 // Bottom Info
@@ -103,7 +59,28 @@ struct WallpaperDetailView: View {
                 )
             }
         }
-        .navigationBarHidden(true)
+        .toolbar(.hidden, for: .bottomBar)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: toggleFav) {
+                    Image(systemName: isFavorite ? "heart.fill" : "heart")
+                        .font(.title2)
+                        .foregroundColor(isFavorite ? .red : .gray)
+                }
+
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: downloadWallpaper) {
+                    if isDownloading {
+                        ProgressView()
+                    } else {
+                        Image(systemName: "arrow.down.to.line")
+                            .font(.title2)
+                    }
+                }
+            }
+        }
         .alert(isPresented: $showToast) {
             Alert(title: Text(toastMessage))
         }
